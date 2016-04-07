@@ -1,0 +1,125 @@
+<div class="panel panel-default">
+    <div class="col-md-4 center">
+      <h2> Crear </h2>
+    </div>
+		<div class="container">
+
+			<%= form_for @room do |f| %>
+
+
+				<div class="row">
+					  <div class="col-md-4 select">
+						<div class="form-group">
+							<label>Vivienda</label>
+							<%= f.select :home_type, [["Piso","Apartment"], ["Casa","House"], ["Desayuno incluido","Bed & Breakfast"]], id: "home_type", prompt: "Seleccionar", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Habitación</label>
+							<%= f.select :room_type, [["Cualquiera","Entire"], ["Privada","Private"], ["Compartida","Shared"]],prompt: "Seleccionar", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Personas</label>
+							<%= f.select :accommodate, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], prompt: "Seleccionar", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Dormitorios</label>
+							<%= f.select :bed_room, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Seleccionar", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-4 select">
+						<div class="form-group">
+							<label>Baños</label>
+							<%= f.select :bath_room, [["1",1], ["2",2], ["3",3], ["4+",4]], prompt: "Seleccionar", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Título</label>
+						<%= f.text_field :listing_name, class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Descripción</label>
+						<%= f.text_area :summary, rows: 5, class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Dirección</label>
+						<%= f.text_field :address, class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+            <p>
+						<input type="checkbox" id="test6" />
+            <label for="test6"><%= f.check_box :is_tv %> TV</label>
+            </p>
+            <p><input type="checkbox" id="test7" />
+					  <label for="test7"><%= f.check_box :is_kitchen %> Cocina</label>
+            </p>
+            <p><input type="checkbox" id="test8" />
+					  <label for="test8"><%= f.check_box :is_internet %> Internet</label>
+            </p>
+          </div>
+
+					<div class="col-md-4">
+            <p><input type="checkbox" id="test9" />
+					  <label for="test9"><%= f.check_box :is_heating %> Calefacción</label>
+            </p>
+            <p>	<input type="checkbox" id="test10" />
+					  <label for="test10"><%= f.check_box :is_air %> Aire Acondicionado</label>
+            </p>
+          </div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Precio por día en €</label>
+							<div class="input-group">
+								<%= f.text_field :price, placeholder: "ej. 288", class: "form-group" %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+          <p>	<input type="checkbox" id="test11" />
+          <label for="test11"><%= f.check_box :active %> Active</label>
+          </p>
+				</div>
+
+				<div class="actions">
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				</div>
+
+			<% end %>
+
+		</div>
+	</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
