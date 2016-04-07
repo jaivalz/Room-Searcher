@@ -8,85 +8,20 @@
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">Mi perfil</a></li>
-    <li><a href="#!">Dashboard</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Cerrar Sesión</a></li>
-  </ul>
-
-  <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">Mi perfil</a></li>
-    <li><a href="#!">Dashboard</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">Cerrar Sesión</a></li>
-  </ul>
-
-
-  <header>
-    <nav class="indigo darken-1">
-      <div class="container">
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Cuart</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Enlace 1</a></li>
-          <li><a href="#">Registro</a></li>
-          <li><a href="#">Iniciar Sesión</a></li>
-             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Nombre<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-              </i></a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-          <li><a href="#">Enlace 1</a></li>
-          <li><a href="#">Registro</a></li>
-          <li><a href="#">Iniciar Sesión</a></li>
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Nombre<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-              </i></a></li>
-        </ul>
-      </div>
-    </div>
-    </nav>
-  </header>
-
-<main>
+  <%= render "shared/navbar" %>
+  
   <div class="container">
-  <%= yield %>
-</div>
-</main>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
 
-<footer class="page-footer indigo darken-2">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Cuart</h5>
-                <p class="grey-text text-lighten-4">Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                  weebly ning heekya handango imeem plugg dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                  Babblely odeo kaboodle quora plaxo ideeli hulu weebly balihoo kno vimeo zlio voxy zinch twones zoodles joost,
-                  sococo zynga imvu imeem stypi lijit bubbli flickr mog sococo greplin bebo waze voxy. Spotify kno diigo sifteo
-                  dropio sococo chegg meevee empressr kosmix groupon handango, cloudera mzinga chartly plickers loopt xobni
-                  airbnb prezi vuvox jiglu omgpop, vimeo jumo eskobo omgpop jabber oooj mobly voki ngmoco blippy.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Social</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2016 Copyright Cuart
-            <%= link_to "Sobre nosotros", pages_about_path, :class => "grey-text text-lighten-4 right" %>
-            </div>
-          </div>
-        </footer>
+  <main>
+    <div class="container">
+    <%= yield %>
+  </div>
+  </main>
+
+  <%= render "shared/footer" %>
 
 </body>
 
