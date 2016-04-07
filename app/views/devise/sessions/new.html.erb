@@ -3,6 +3,8 @@
     <h2>Iniciar Sesión</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'shared/devisemes' %>
+    
       <div class="input-field">
         <%= f.text_field :email, :class => "validate", :placeholder => "Correo electrónico" %>
       </div>
