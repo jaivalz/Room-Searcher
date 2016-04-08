@@ -1,2 +1,47 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <!-- Image -->
+  <div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator"<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
+    <span class="card-title"><h5>Pulsa la imagen para ver más fotos</h5></span>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4"><%= @room.listing_name %><i class="material-icons right">view_headline</i></span>
+    <br>
+    <%= @room.user.fullname %> <br>
+    <%= @room.address %>
+  </div>
+  <div class="card-content">
+  <p><%= @room.summary %></p>
+  </div>
+
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%= @room.listing_name %><i class="material-icons right">close</i></span>
+        <% if @photos %>
+    		<% @photos.each do |photo| %>
+    		<%= image_tag photo.image.url(:medium) %>
+        <% end %>
+        <% end %>
+
+        <hr>
+    </div>
+
+  <div class="card-action">
+    <a href="#"><%= @room.accommodate %> <%= @room.accommodate > 1? "Personas" : "Persona" %></a>
+    <a href="#"><%= @room.bed_room %> <%= @room.bed_room > 1? "Dormitorios" : "Dormitorio" %></a>
+    <a href="#"><%= @room.bath_room %> <%= @room.bath_room > 1? "Baños" : "Baño" %></a>
+  </div>
+</div>
+
+
+
+
+<script>
+$(document).ready(function(){
+   $('.materialboxed').materialbox();
+ });
+ </script>

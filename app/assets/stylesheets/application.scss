@@ -36,6 +36,10 @@ main {
   border-bottom: 1px solid #CCC
 }
 
+.panel-body {
+  border-bottom: 1px solid #CCC;
+}
+
 .row-space-1 {
   margin-top: 6px;
   margin-bottom: 6px;
@@ -57,6 +61,8 @@ main {
   font-weight: 500;
   line-height: 25px;
 }
+
+
 
 .avatar-small {
 	width: 28px;
@@ -188,4 +194,13 @@ input[type="checkbox"]:checked:before {
 
 .panel-heading.preview img{
   width: 100%;
+}
+
+.amenities li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.text-line-through {
+  text-decoration: line-through
 }
