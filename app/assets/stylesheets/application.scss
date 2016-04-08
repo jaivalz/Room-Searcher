@@ -2,8 +2,15 @@
 @import "toastr";
 
 body {
+  display: flex;
+  min-height: 100vh;
   color: #565a5c;
+  flex-direction: column;
   background-color: #F8F8F8;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .container {
