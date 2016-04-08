@@ -4,7 +4,7 @@
     </div>
 		<div class="container">
 
-			<%= form_for @room do |f| %>
+			<%= form_for @room, html: {multipart: true} do |f| %>
 
 
 				<div class="row">
@@ -102,11 +102,27 @@
 						<div class="form-group">
 							<label>Precio por día en €</label>
 							<div class="col m6 offset-m3 center input-group">
-								<%= f.text_field :price, placeholder: "ej. 288", class: "form-group" %>
+								<%= f.text_field :price, placeholder: "Por ejemplo: 288", class: "form-group" %>
 							</div>
 						</div>
 					</div>
 				</div>
+
+        <div class="row">
+          <div class="col m6 offset-m3 center">
+            <div class="form-group">
+                <label>Subir fotos</label>
+                <br />
+                <span class="waves-effect waves-light btn btn-file"><i class="material-icons left">cloud</i>
+                <%= file_field_tag "images[]", type: :file, multiple: true %>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div id="photos">
+          <%= render 'photos/list' %></div>
+        </div>
 
 				<div class="row">
           <div class="col m6 offset-m3 center">
