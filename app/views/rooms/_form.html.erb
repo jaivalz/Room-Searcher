@@ -67,29 +67,35 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col m6 offset-m3 center">
-            <p><input type="checkbox" id="test8" />
-            <label for="test8"><%= f.check_box :is_internet %> Internet</label>
-            </p>
-            <p><input type="checkbox" id="test7" />
-            <label for="test7"><%= f.check_box :is_kitchen %> Cocina</label>
-            </p>
-            <p>
-						<input type="checkbox" id="test6" />
-            <label for="test6"><%= f.check_box :is_tv %> TV</label>
-            </p>
-          </div>
 
-					<div class="col m6 offset-m3 center">
-            <p><input type="checkbox" id="test9" />
-					  <label for="test9"><%= f.check_box :is_heating %> Calefacción</label>
-            </p>
-            <p>	<input type="checkbox" id="test10" />
-					  <label for="test10"><%= f.check_box :is_air %> Aire Acondicionado</label>
-            </p>
-          </div>
+				<div class="row">
+          <div class="col s5 offset-s5">
+              <p><input type="checkbox" id="test8" />
+              <label for="test8"><%= f.check_box :is_internet %> Internet</label>
+              </p>
+            </div>
+            <div class="col s5 offset-s5">
+              <p><input type="checkbox" id="test7" />
+              <label for="test7"><%= f.check_box :is_kitchen %> Cocina</label>
+              </p>
+            </div>
+            <div class="col s5 offset-s5">
+              <p><input type="checkbox" id="test6" />
+              <label for="test6"><%= f.check_box :is_tv %>TV</label>
+              </p>
+            </div>
+            <div class="col s5 offset-s5">
+              <p><input type="checkbox" id="test9" />
+  					  <label for="test9"><%= f.check_box :is_heating %>Calefacción</label>
+              </p>
+            </div>
+            <div class="col s5 offset-s5">
+              <p>	<input type="checkbox" id="test10" />
+  					  <label for="test10"><%= f.check_box :is_air %> Aire Acond.</label>
+              </p>
+            </div>
 				</div>
+
 
 				<div class="row">
 					<div class="col m6 offset-m3 center">

@@ -48,3 +48,5 @@ gem 'materialize-sass'
 gem 'devise'
 
 gem 'toastr-rails'
+
+gem 'paperclip'
