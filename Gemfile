@@ -52,3 +52,5 @@ gem 'toastr-rails'
 gem 'paperclip'
 
 gem 'geocoder'
+
+gem 'jquery-ui-rails'
