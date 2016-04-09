@@ -50,3 +50,5 @@ gem 'devise'
 gem 'toastr-rails'
 
 gem 'paperclip'
+
+gem 'geocoder'
