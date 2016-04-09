@@ -9,14 +9,20 @@
     <img class="activator"<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
     <span class="card-title"><h5>Pulsa la imagen para ver más fotos</h5></span>
   </div>
+  <div class="card-content right">
+  <a class="waves-effect waves-teal btn-flat btn modal-trigger" href="#modal1">Hablar con <%= @room.user.fullname %></a>
+  <a class="waves-effect waves-teal btn-flat btn modal-trigger" href="#modal1">Reservar</a>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <%= render 'reservations/form' %>
+    </div>
+  </div>
+  </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4"><%= @room.listing_name %><i class="material-icons right">view_headline</i></span>
+    <%= @room.listing_name %>
     <br>
     <%= @room.user.fullname %> <br>
     <%= @room.address %>
-  </div>
-  <div class="card-content">
-  <%= render 'reservations/form' %>
   </div>
   <div class="card-content">
   <p><%= @room.summary %></p>
@@ -83,5 +89,8 @@
 $(document).ready(function(){
   $('.materialboxed').materialbox();
 });
-
+$(document).ready(function(){
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+});
 </script>

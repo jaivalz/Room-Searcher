@@ -1,6 +1,13 @@
 <%= form_for([@room, @room.reservations.new]) do |f| %>
 
   <div class="row">
+    <div class="col s12 price_tag">
+      <span><%= @room.price %>€</span>
+      <span class="pull-right"> por día</span>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col s6">
       <label>Check In</label>
       <%= f.text_field :start_date, readonly: 'true', placeholder: 'Llegada', class: 'form-control' %>
@@ -16,8 +23,9 @@
   <%= f.hidden_field :price, value: @room.price %>
   <%= f.hidden_field :total, id: 'reservation_total' %>
 
+  <h4><span id="message"></span></h4>
+
   <div id="preview" style="display: none">
-    <h4><span id="message"></span></h4>
 
     <table class="reservation-table">
       <tbody>
@@ -27,13 +35,13 @@
         </tr>
         <tr>
           <td>Total</td>
-          <td><span id="reservation_sum"></span></td>
+          <td><span id="reservation_sum"></span>€</td>
         </tr>
       </tbody>
     </table>
+    <br>
   </div>
-  <br>
-  <%= f.submit "Reservar", class:"btn btn-primary" %>
+  <%= f.submit "Reservar", id: "btn_book", class: "btn btn-primary wide", disabled: 'true' %>
 
 <% end %>
 
@@ -130,7 +138,7 @@
 
 								if (data.conflict) {
 
-									$('#message').text("This date range is not available.");
+									$('#message').text("No permitido");
 									$('#preview').hide();
 									$('#btn_book').attr('disabled', true);
 
