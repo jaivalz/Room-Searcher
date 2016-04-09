@@ -66,4 +66,19 @@
     <a href="#"><%= @room.bed_room %> <%= @room.bed_room > 1? "Dormitorios" : "Dormitorio" %></a>
     <a href="#"><%= @room.bath_room %> <%= @room.bath_room > 1? "Baños" : "Baño" %></a>
   </div>
-</div>
+
+  <!-- Pisos cerca -->
+  <!-- <div class="card-content">
+    <p>También te puede interesar</p>
+    <% for room in @room.nearbys(5) %>
+          <img class="materialboxed" data-caption="<%= link_to room.listing_name, room %>" width="250" <%= image_tag room.photos[0].image.url() %><br>
+    <% end %>
+  </div>
+</div> -->
+
+<script>
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
+
+</script>
