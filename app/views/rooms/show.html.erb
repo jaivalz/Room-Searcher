@@ -25,6 +25,12 @@
     <%= @room.address %>
   </div>
   <div class="card-content">
+        <%= @room.average_rating %> (<%= @reviews.count %>)<br>
+        <%= render 'reviews/form' if @booked && !@hasReview %><br>
+        <%= render 'reviews/list' %>
+  </div>
+
+  <div class="card-content">
   <p><%= @room.summary %></p>
   </div>
   <div class="card-content">
