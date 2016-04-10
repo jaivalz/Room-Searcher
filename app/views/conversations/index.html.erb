@@ -1,30 +1,35 @@
 <div class="row">
-  <div class="col s12">
-    <div class="col s12 m4 l8"><p>Your conversations</p></div>
+    <div class="col s12 m6 l2"><br><br><label>Conversaciones</label></div>
+    <div class="col s12 m6 l7">
+      <br>
     <% @conversations.each do |conversation| %>
     <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
-
+    <ul class="collection">
     <%= link_to conversation_messages_path(conversation) do %>
-
-        <div class="col s12 m4 l8">
-        <p>Avatar</p><br>
-        <%= other.fullname %><br>
-        <%= conversation.messages.last.message_time %><br>
-        <br />
-        <%= conversation.messages.last.content %>
-        </div>
+          <li class="collection-item avatar">
+            <img src="http://cliparts.co/cliparts/rTn/KqE/rTnKqEnkc.jpg" alt="" class="circle">
+            <span class="title"><%= other.fullname %></span>
+            <p><%= conversation.messages.last.message_time %><br>
+               <%= conversation.messages.last.content %>
+            </p>
+          </li>
         <% end %>
-        <% end %>
+      </ul>
 
-    <div class="col s12 m4 l2">
-      <h3>All users</h3>
+        <% end %>
+      </div>
+
+
+    <div class="col s12 m6 l3 right">
+      <br>
+      <label>Contactos<label>
+        <br>
       <% @users.each do |user| %>
         <% if user != current_user %>
-          <%= user.fullname %>
-          <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+        <div class="chip">
+          <%= link_to user.fullname, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %><br>
+        </div>
         <% end %>
-        <br>
       <% end %>
     </div>
-  </div>
 </div>

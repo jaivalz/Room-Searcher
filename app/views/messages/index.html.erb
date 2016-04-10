@@ -1,22 +1,28 @@
 <div class="row">
   <div class="col s12 m4 l3">
-    Avatar<br>
-    <strong><%= @other.fullname %></strong>
-    <%= link_to "Más información", @other, class: "btn btn-default wide" %>
+    <div class="card">
+        <div class="card-image">
+          <img src="http://www.lawyersweekly.com.au/images/LW_Media_Library/594partner-profile-pic-An.jpg">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+          <span><%= @other.fullname %></span>
+        </div>
+        <div class="card-action">
+          <%= link_to "Más información", @other, class: "btn btn-default wide" %>
+        </div>
+      </div>
   </div>
+
   <div class="col s12 m8 l9">
-    Conversation with <%= @other.fullname %>
-    <br>
-    <%= form_for [@conversation, @conversation.messages.new] do |f| %>
-      <div class="form-group">
+    <ul class="collection">
+      <li class="collection-item">
+        <%= form_for [@conversation, @conversation.messages.new] do |f| %>
         <%= f.text_area :content, id: "new_message", class: "form-control" %>
-      </div>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <br>
-      <div class="actions">
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.submit "Enviar", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+        <% end %>
+      </li>
   </div>
   <div id="chat">
     <%= render 'messages' %>
