@@ -6,7 +6,7 @@
               <span class="card-title"></span>
             </div>
             <div class="card-content">
-              <span><%= @user.fullname %></span>
+              <label><%= @user.fullname %></label>
             </div>
             <div class="card-action">
               <% if current_user != @user %>
@@ -15,10 +15,6 @@
               <%= link_to "Editar perfil", edit_user_registration_path, class: "btn btn-primary wide" %>
 
               <% end %>
-            </div>
-            <div class="card-content">
-              Email Address<br>
-      				Phone Number
             </div>
           </div>
       </div>

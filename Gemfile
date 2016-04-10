@@ -55,6 +55,10 @@ gem 'geocoder'
 
 gem 'jquery-ui-rails'
 
+gem 'private_pub'
+
+gem 'thin'
+
 group :development do
   gem "better_errors"
 end

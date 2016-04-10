@@ -17,15 +17,24 @@
   <div class="col s12 m8 l9">
     <ul class="collection">
       <li class="collection-item">
-        <%= form_for [@conversation, @conversation.messages.new] do |f| %>
-        <%= f.text_area :content, id: "new_message", class: "form-control" %>
+        <%= form_for [@conversation, @conversation.messages.new], remote: true do |f| %>
+        <%= f.text_area :content, class: "form-control" %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.submit "Enviar", class: "btn btn-primary" %>
         <% end %>
       </li>
-  </div>
-  <div id="chat">
-    <%= render 'messages' %>
+      <br>
+      </ul>
+      <ul class="collection">
+      <li class="collection-item">
+      <div id="chat">
+        <%= render @messages, locals: {conversation: @conversation} %>
+      </div>
+      </li>
+    </ul>
   </div>
 
+
 </div>
+
+<%= subscribe_to conversation_messages_path(@conversation) %>
