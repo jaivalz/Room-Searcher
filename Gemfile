@@ -54,3 +54,7 @@ gem 'paperclip'
 gem 'geocoder'
 
 gem 'jquery-ui-rails'
+
+group :development do
+  gem "better_errors"
+end

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col s12">
+    <div class="col s12 m4 l8"><p>Your conversations</p></div>
+    <% @conversations.each do |conversation| %>
+    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
+
+    <%= link_to conversation_messages_path(conversation) do %>
+
+        <div class="col s12 m4 l8">
+        <p>Avatar</p><br>
+        <%= other.fullname %><br>
+        <%= conversation.messages.last.message_time %><br>
+        <br />
+        <%= conversation.messages.last.content %>
+        </div>
+        <% end %>
+        <% end %>
+
+    <div class="col s12 m4 l2">
+      <h3>All users</h3>
+      <% @users.each do |user| %>
+        <% if user != current_user %>
+          <%= user.fullname %>
+          <%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+        <% end %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>

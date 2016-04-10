@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col s12 m4 l3">
+    Avatar<br>
+    <strong><%= @other.fullname %></strong>
+    <%= link_to "Más información", @other, class: "btn btn-default wide" %>
+  </div>
+  <div class="col s12 m8 l9">
+    Conversation with <%= @other.fullname %>
+    <br>
+    <%= form_for [@conversation, @conversation.messages.new] do |f| %>
+      <div class="form-group">
+        <%= f.text_area :content, id: "new_message", class: "form-control" %>
+      </div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <br>
+      <div class="actions">
+        <%= f.submit "Enviar", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div id="chat">
+    <%= render 'messages' %>
+  </div>
+
+</div>
