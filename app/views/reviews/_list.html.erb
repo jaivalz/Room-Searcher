@@ -8,17 +8,23 @@
     <div class="row">
       <div class="col s3">
         <div>
-          <strong><%= r.user.fullname %> <%= r.star %> </strong>
-          <span class="pull-right">
-            <%= link_to "Borrar valoración", [@room, r], method: :delete, data: {confirm: "¿Seguro?"} if current_user && current_user == r.user %>
-          </span>
+          <strong><%= r.user.fullname %></strong> <%= r.created_at.strftime("%v") %><div id="stars_<%= r.id %>"></div> 
         </div>
         <div>
           <%= r.comment %><br>
-          <%= r.created_at.strftime("%v") %>
+          <%= link_to "Borrar valoración", [@room, r], method: :delete, data: {confirm: "¿Seguro?"} if current_user && current_user == r.user %>
         </div>
       </div>
     </div>
+
+    <script>
+      $('#stars_<%= r.id %>').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= r.star %>
+      });
+    </script>
+
   <% end %>
 
 <% end %>

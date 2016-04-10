@@ -10,8 +10,7 @@
     <span class="card-title"><h5>Pulsa la imagen para ver más fotos</h5></span>
   </div>
   <div class="card-content right">
-  <a class="waves-effect waves-teal btn-flat btn modal-trigger" href="#modal1">Consultar</a>
-  <a class="waves-effect waves-teal btn-flat btn modal-trigger" href="#modal1">Reservar</a>
+  <a class="waves-effect waves-teal btn-flat btn modal-trigger" href="#modal1">Reservar</a><br>
   <div id="modal1" class="modal">
     <div class="modal-content">
       <%= render 'reservations/form' %>
@@ -22,12 +21,14 @@
     <%= @room.listing_name %>
     <br>
     <%= @room.user.fullname %> <br>
-    <%= @room.address %>
+    <%= @room.address %> <br>
+    <span id="average_rating" class="modal-trigger" href="#modal2"></span>
   </div>
-  <div class="card-content">
-        <%= @room.average_rating %> (<%= @reviews.count %>)<br>
-        <%= render 'reviews/form' if @booked && !@hasReview %><br>
-        <%= render 'reviews/list' %>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <%= render 'reviews/form' if @booked && !@hasReview %><br>
+      <%= render 'reviews/list' %>
+    </div>
   </div>
 
   <div class="card-content">
@@ -91,12 +92,20 @@
   </div>
 </div> -->
 
-<script>
-$(document).ready(function(){
-  $('.materialboxed').materialbox();
-});
-$(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').leanModal();
-});
-</script>
+  <script>
+    $(document).ready(function(){
+      $('.materialboxed').materialbox();
+    });
+
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+    });
+
+      $('#average_rating').raty({
+        path: '/assets',
+        readOnly: true,
+        score: <%= @room.average_rating %>
+      });
+
+  </script>
