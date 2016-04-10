@@ -2,7 +2,8 @@
 	<div class="col s12 m4 l3">
 		<ul class="sidebar-list">
 			<li class="sidebar-item"><%= link_to "Tu listado", rooms_path, class: "sidebar-link active" %></li>
-			<li class="sidebar-item"><%= link_to "Tus reservas", rooms_path, class: "sidebar-link" %></li>
+			<li class="sidebar-item"><%= link_to "Tus reservas", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Historial", your_trips_path, class: "sidebar-link" %></li>
 		</ul>
 	</div>
   <br />
@@ -20,7 +21,7 @@
 							<%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
 						</div>
 						<div class="col s12 m4 l8">
-							<h4><%= room.listing_name %></h4>
+							<h6><%= room.listing_name %></h6>
 						</div>
             <br />
 						<div class="col s12 m4 l2">

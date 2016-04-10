@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col s12 m4 l3">
+		<ul class="sidebar-list">
+			<li class="sidebar-item"><%= link_to "Tu listado", rooms_path, class: "sidebar-link" %></li>
+			<li class="sidebar-item"><%= link_to "Tus reservas", your_reservations_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item"><%= link_to "Historial", your_trips_path, class: "sidebar-link" %></li>
+
+		</ul>
+	</div>
+  <br />
+	<div class="col s12 m8 l9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Reservas
+			</div>
+			<div class="panel-body">
+        <% @rooms.each do |room| %>
+				<% room.reservations.each do |reservation| %>
+					<div class="row">
+            <br>
+            <div class="col s12 m4 l5">
+							<%= link_to room_path(reservation.room) do %>
+						  <%= image_tag reservation.room.photos[0].image.url(:thumb) if reservation.room.photos.length > 0 %>
+						  <% end %></div>
+            <div class="col s12 m4 l5">
+							<%= reservation.start_date.strftime('%v') %><br><%= reservation.room.listing_name %>
+            </div>
+            <div class="col s12 m4 l2"><h5><%= reservation.total %>€</h5></div>
+
+					</div>
+					<hr>
+				<% end %>
+        <% end %>
+			</div>
+		</div>
+	</div>
+</div>
