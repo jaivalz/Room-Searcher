@@ -1,7 +1,5 @@
 <div class="panel panel-default">
-    <div class="col-md-4 center">
-      <h2> Crear </h2>
-    </div>
+<br />
 		<div class="container">
 
 			<%= form_for @room, html: {multipart: true} do |f| %>
@@ -9,50 +7,44 @@
 
 				<div class="row">
           <div class="row">
-            <div class="col m6 offset-m3 center form-group">
+            <div class="col m12 s12 l4 form-group">
               <label>¿Qué ofreces?</label>
               <%= f.text_field :listing_name, placeholder: "Ejemplo: Piso de 3 habitaciones", class: "form-control" %>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col m6 offset-m3 center form-group">
+            <div class="col m12 s12 l4 form-group">
               <label>¿Donde?</label>
               <%= f.text_field :address, placeholder: "Ejemplo: Calle Jano, 4, Málaga", class: "form-control" %>
             </div>
+            <div class="col s12 m6 l4 select">
+            <div class="form-group">
+              <label>¿Qué es?</label>
+              <%= f.select :home_type, [["Piso","Apartment"], ["Casa","House"], ["Hotel/Hostal","Bed & Breakfast"]], id: "home_type", class: "form-control" %>
+            </div>
           </div>
 
-					  <div class="col m6 offset-m3 center select">
-						<div class="form-group">
-							<label>¿Qué es?</label>
-							<%= f.select :home_type, [["Piso","Apartment"], ["Casa","House"], ["Hotel/Hostal","Bed & Breakfast"]], id: "home_type", class: "form-control" %>
-						</div>
-					</div>
-
-					<div class="col m6 offset-m3 center select">
+          </div>
+          <div class="row">
+					<div class="col s12 m6 l3 select">
 						<div class="form-group">
 							<label>¿Qué tipo de habitación?</label>
-							<%= f.select :room_type, [["Cualquiera","Entire"], ["Privada","Private"], ["Compartida","Shared"]], class: "form-control" %>
+							<%= f.select :room_type, [["Privada","Private"], ["Compartida","Shared"]], class: "form-control" %>
 						</div>
 					</div>
 
-					<div class="col m6 offset-m3 center select">
+					<div class="col s12 m6 l3 select">
 						<div class="form-group">
 							<label>¿Para cuantas personas?</label>
 							<%= f.select :accommodate, [["1",1], ["2",2], ["3",3], ["4",4], ["5",5], ["6+",6]], class: "form-control" %>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<div class="col m6 offset-m3 center select">
+					<div class="col s12 m6 l3 select">
 						<div class="form-group">
 							<label>¿Cuántos dormitorios?</label>
 							<%= f.select :bed_room, [["1",1], ["2",2], ["3",3], ["4+",4]], class: "form-control" %>
 						</div>
 					</div>
 
-					<div class="col m6 offset-m3 center select">
+					<div class="col s12 m6 l3 select">
 						<div class="form-group">
 							<label>¿Cuántos baños?</label>
 							<%= f.select :bath_room, [["1",1], ["2",2], ["3",3], ["4+",4]], class: "form-control" %>
@@ -61,30 +53,31 @@
 				</div>
 
 				<div class="row">
-					<div class="col m6 offset-m3 center form-group">
+					<div class="col s12 m12 form-group">
 						<label>Descripción</label>
-						<%= f.text_area :summary, rows: 5, placeholder: "500 letras máximo, de lo contrario no se guardará", class: "form-control" %>
+            <%= f.text_area :summary, placeholder: "Máximo 500 palabras, de lo contrario no se publicará",
+            class: "form-control materialize-textarea", length: "500" %>
 					</div>
 				</div>
 
 				<div class="row">
-          <div class="col s5 offset-s5">
+          <div class="col s12 m6 l3">
               <%= f.check_box :is_internet, id:"is_internet" %>
               <%= f.label "Internet", for:"is_internet", id:"is_internet" %>
             </div>
-            <div class="col s5 offset-s5">
+            <div class="col s12 m6 l3">
               <%= f.check_box :is_kitchen, id:"is_kitchen" %>
               <%= f.label "Cocina", for:"is_kitchen", id:"is_kitchen" %>
             </div>
-            <div class="col s5 offset-s5">
+            <div class="col s12 m6 l3">
               <%= f.check_box :is_tv, id:"is_tv" %>
               <%= f.label "TV", for:"is_tv", id:"is_tv" %>
             </div>
-            <div class="col s5 offset-s5">
+            <div class="col s12 m6 l2">
               <%= f.check_box :is_heating, id:"is_heating" %>
               <%= f.label "Calefacción", for:"is_heating", id:"is_heating" %>
             </div>
-            <div class="col s5 offset-s5">
+            <div class="col s12 m6 l2">
               <%= f.check_box :is_air, id:"is_air" %>
               <%= f.label "Aire Acond.", for:"is_air", id:"is_air" %>
             </div>
@@ -105,9 +98,8 @@
         <div class="row">
           <div class="col m6 offset-m3 center">
             <div class="form-group">
-                <label>Subir fotos</label>
-                <br />
-                <span class="waves-effect waves-light btn btn-file"><i class="material-icons left">cloud</i>
+
+                <span class="waves-effect waves-light btn btn-file">Subir fotos<i class="material-icons left">cloud</i>
                 <%= file_field_tag "images[]", type: :file, multiple: true %>
               </span>
             </div>
@@ -128,7 +120,7 @@
 
         <div class="row">
 				<div class="col m6 offset-m3 center actions">
-					<%= f.submit "Save", class: "btn btn-primary wide" %>
+					<%= f.submit "Publicar", class: "btn btn-primary wide" %>
 				</div>
       </div>
 

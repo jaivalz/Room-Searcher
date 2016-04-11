@@ -233,10 +233,11 @@ input[type="checkbox"]:checked:before {
 }
 
 .card-user {
-  max-height: 200px;
+  max-height: 300px;
 }
 .card-houses {
-  max-height: 300px;
+  height: 300px;
+  width: 100%;
 }
 
 .card-room1 {
@@ -245,4 +246,28 @@ input[type="checkbox"]:checked:before {
 
 .card-room2 {
   max-height: 500px;
+}
+
+.card-cont2 {
+  height: 50px;
+}
+
+#sidebar {
+  float: right;
+  width: 340px;
+}
+
+#sidebar #widget {
+  width:340px;
+  height: 575px;
+  margin-bottom:10px;
+  border-bottom:1px solid #ccc;
+}
+
+#article {
+  width:600px;
+}
+
+.card-tam {
+  height: 250px;
 }
