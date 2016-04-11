@@ -62,3 +62,5 @@ gem 'thin'
 group :development do
   gem "better_errors"
 end
+
+gem 'ransack'

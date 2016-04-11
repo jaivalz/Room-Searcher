@@ -231,3 +231,18 @@ input[type="checkbox"]:checked:before {
 .conversation:hover, .conversation:focus {
   background-color: #F4F4F5;
 }
+
+.card-user {
+  max-height: 200px;
+}
+.card-houses {
+  max-height: 300px;
+}
+
+.card-room1 {
+  max-width: 700px;
+}
+
+.card-room2 {
+  max-height: 500px;
+}

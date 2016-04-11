@@ -4,8 +4,8 @@
   <div class="panel-body">
 
     <!-- Image -->
-  <div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="card card-room1">
+  <div class="card-image waves-effect waves-block waves-light card-room2">
     <img class="activator"<%= image_tag @photos[0].image.url(), class: "img-responsive" %>
     <span class="card-title"><h5>Pulsa la imagen para ver más fotos</h5></span>
   </div>
@@ -73,8 +73,19 @@
     		<%= image_tag photo.image.url(:medium) %>
         <% end %>
         <% end %>
-
         <hr>
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="amenities">
+							<li class="<%= 'text-line-through' if !@room.is_tv %>">TV</li>
+							<li class="<%= 'text-line-through' if !@room.is_kitchen %>">Cocina</li>
+							<li class="<%= 'text-line-through' if !@room.is_internet %>">Internet</li>
+							<li class="<%= 'text-line-through' if !@room.is_heating %>">Calefacción</li>
+							<li class="<%= 'text-line-through' if !@room.is_air %>">Aire Acond.</li>
+							</ul>
+          </div>
+        </div>
+
     </div>
 
   <div class="card-action">
@@ -82,6 +93,8 @@
     <a href="#"><%= @room.bed_room %> <%= @room.bed_room > 1? "Dormitorios" : "Dormitorio" %></a>
     <a href="#"><%= @room.bath_room %> <%= @room.bath_room > 1? "Baños" : "Baño" %></a>
   </div>
+</div>
+</div>
 
   <!-- Pisos cerca -->
   <!-- <div class="card-content">
