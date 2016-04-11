@@ -2,26 +2,24 @@
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><%= link_to "Mi cuenta", edit_user_registration_path %></li>
-  <li><a href="#!">Wish list</a></li>
+  <li><%= link_to "Mi cuenta", user_path(current_user.id) %></li>
   <li class="divider"></li>
   <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
 </ul>
 
 
 <ul id="dropdown2" class="dropdown-content">
-  <li><%= link_to "Mi cuenta", edit_user_registration_path %></li>
-  <li><a href="#!">Wish list</a></li>
+  <li><%= link_to "Mi cuenta", user_path(current_user.id) %></li>
   <li class="divider"></li>
   <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
 </ul>
 
 
 <header>
-  <nav class="indigo darken-1">
+  <nav class="green darken-1">
     <div class="container">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Cuart</a>
+      <%= link_to "Cuart", rooms_path, class:"brand-logo" %>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">perm_identity</i></a>
       <ul class="right hide-on-med-and-down">
 

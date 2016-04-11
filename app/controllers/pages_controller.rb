@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @rooms = Room.all
+    @rooms = Room.limit(3)
   end
 
   def about

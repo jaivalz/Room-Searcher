@@ -1,4 +1,5 @@
 <div id="row">
+  <br>
     <div class="row">
       <%= search_form_for @search, url: search_path do |f| %>
         <div class="row">
@@ -49,10 +50,10 @@
       <% end %>
       <div class="row">
         <div id="article">
-        <div class="col s12 m9 l9">
+        <div class="col s12 m8 l9">
           <% @arrRooms.each do |room| %>
-
-            <div class="card card-small">
+            <div class=" col s12 m6">
+            <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator card-tam" <%= image_tag room.photos[0].image.url(:medium) %>
             </div>
@@ -64,7 +65,7 @@
               <p><%= room.summary %></p>
             </div>
           </div>
-
+          </div>
           <% end %>
           </div>
         </div>
@@ -79,7 +80,8 @@
                   <% if @arrRooms.length > 0 %>
                     center: new google.maps.LatLng(<%= @arrRooms[0].latitude %>, <%= @arrRooms[0].longitude %>),
                   <% else %>
-                    center: new google.maps.LatLng(44.5403, -78.5463),
+                    center: new google.maps.LatLng(36.721420, -4.435764),
+                    zoom: 1,
                   <% end %>
                   zoom: 14,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
